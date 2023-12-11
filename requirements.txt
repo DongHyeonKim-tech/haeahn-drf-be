@@ -1,0 +1,11 @@
+asgiref @ file:///C:/ci_311/asgiref_1676448296195/work
+Django @ file:///C:/ci_311/django_1676469589007/work
+djangorestframework==3.14.0
+djongo==1.3.6
+mongoengine==0.27.0
+mssql-django==1.3
+pymongo==3.12.0
+pyodbc==5.0.1
+pytz==2023.3.post1
+sqlparse==0.2.4
+tzdata @ file:///croot/python-tzdata_1690578112552/work
