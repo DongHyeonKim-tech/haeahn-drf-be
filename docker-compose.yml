@@ -5,12 +5,12 @@ services:
     build: .
     command: gunicorn --config gunicorn.conf.py haeahn_drf_be.wsgi:application
     ports:
-      - "8000:8000"
-  nginx:
-    image: nginx:latest
-    ports:
-      - "81:81"
-    volumes:
-      - ./nginx:/etc/nginx/conf.d
-    depends_on:
-      - web
+      - "8000:80"
+  # nginx:
+  #   image: nginx:latest
+  #   ports:
+  #     - "81:81"
+  #   volumes:
+  #     - ./nginx:/etc/nginx/conf.d
+  #   depends_on:
+  #     - web
