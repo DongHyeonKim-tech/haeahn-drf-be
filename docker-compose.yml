@@ -9,7 +9,7 @@ services:
   nginx:
     image: nginx:latest
     ports:
-      - "80:80"
+      - "81:81"
     volumes:
       - ./nginx:/etc/nginx/conf.d
     depends_on:
