@@ -326,6 +326,144 @@ class TbImageFile(models.Model):
         db_table = 'TB_IMAGE_FILE'
 
 
+class VBaseDept(models.Model):
+    dept_cd = models.CharField(db_column='DEPT_CD', max_length=20)  # Field name made lowercase.
+    dept_nm = models.CharField(db_column='DEPT_NM', max_length=100)  # Field name made lowercase.
+    dept_sort = models.CharField(db_column='DEPT_SORT', max_length=10, blank=True, null=True)  # Field name made lowercase.
+    parent_cd = models.CharField(db_column='PARENT_CD', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    parent_nm = models.CharField(db_column='PARENT_NM', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    com_cd = models.CharField(db_column='COM_CD', max_length=20, blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False  # Created from a view. Don't remove.
+        db_table = 'V_BASE_DEPT'
+
+
+class VBaseUser(models.Model):
+    user_id = models.CharField(db_column='USER_ID', max_length=20, primary_key=True)  # Field name made lowercase.
+    emp_no = models.CharField(db_column='EMP_NO', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    user_nm = models.CharField(db_column='USER_NM', max_length=50)  # Field name made lowercase.
+    user_e_nm = models.CharField(db_column='USER_E_NM', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    user_c_nm = models.CharField(db_column='USER_C_NM', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    user_nicknm = models.CharField(db_column='USER_NICKNM', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    ty_retire = models.CharField(db_column='TY_RETIRE', max_length=2, blank=True, null=True)  # Field name made lowercase.
+    user_sex = models.CharField(db_column='USER_SEX', max_length=1, blank=True, null=True)  # Field name made lowercase.
+    user_birthday_fg = models.CharField(db_column='USER_BIRTHDAY_FG', max_length=1, blank=True, null=True)  # Field name made lowercase.
+    user_birthday = models.CharField(db_column='USER_BIRTHDAY', max_length=10, blank=True, null=True)  # Field name made lowercase.
+    user_anniversary_fg = models.CharField(db_column='USER_ANNIVERSARY_FG', max_length=1, blank=True, null=True)  # Field name made lowercase.
+    user_anniversary = models.CharField(db_column='USER_ANNIVERSARY', max_length=10, blank=True, null=True)  # Field name made lowercase.
+    user_fg = models.CharField(db_column='USER_FG', max_length=10, blank=True, null=True)  # Field name made lowercase.
+    wf_pwd = models.CharField(db_column='WF_PWD', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    res_no = models.CharField(db_column='RES_NO', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    mail = models.CharField(db_column='MAIL', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    ex_mail = models.CharField(db_column='EX_MAIL', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    dept_cd = models.CharField(db_column='DEPT_CD', max_length=20)  # Field name made lowercase.
+    dept_nm = models.CharField(db_column='DEPT_NM', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    dept_e_nm = models.CharField(db_column='DEPT_E_NM', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    dept_c_nm = models.CharField(db_column='DEPT_C_NM', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    title_cd = models.CharField(db_column='TITLE_CD', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    title_nm = models.CharField(db_column='TITLE_NM', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    title_e_nm = models.CharField(db_column='TITLE_E_NM', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    title_c_nm = models.CharField(db_column='TITLE_C_NM', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    degree_cd = models.CharField(db_column='DEGREE_CD', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    degree_nm = models.CharField(db_column='DEGREE_NM', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    degree_e_nm = models.CharField(db_column='DEGREE_E_NM', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    degree_c_nm = models.CharField(db_column='DEGREE_C_NM', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    job_cd = models.CharField(db_column='JOB_CD', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    job_nm = models.CharField(db_column='JOB_NM', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    job_e_nm = models.CharField(db_column='JOB_E_NM', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    job_c_nm = models.CharField(db_column='JOB_C_NM', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    duty_cd = models.CharField(db_column='DUTY_CD', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    duty_nm = models.CharField(db_column='DUTY_NM', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    duty_e_nm = models.CharField(db_column='DUTY_E_NM', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    duty_c_nm = models.CharField(db_column='DUTY_C_NM', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    hobong_cd = models.CharField(db_column='HOBONG_CD', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    hobong_nm = models.CharField(db_column='HOBONG_NM', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    title_sort = models.IntegerField(db_column='TITLE_SORT', blank=True, null=True)  # Field name made lowercase.
+    degree_sort = models.IntegerField(db_column='DEGREE_SORT', blank=True, null=True)  # Field name made lowercase.
+    job_sort = models.IntegerField(db_column='JOB_SORT', blank=True, null=True)  # Field name made lowercase.
+    duty_sort = models.IntegerField(db_column='DUTY_SORT', blank=True, null=True)  # Field name made lowercase.
+    hobong_sort = models.IntegerField(db_column='HOBONG_SORT', blank=True, null=True)  # Field name made lowercase.
+    sort = models.IntegerField(db_column='SORT', blank=True, null=True)  # Field name made lowercase.
+    photo_url = models.CharField(db_column='PHOTO_URL', max_length=300, blank=True, null=True)  # Field name made lowercase.
+    sign_url = models.CharField(db_column='SIGN_URL', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    com_cd = models.CharField(db_column='COM_CD', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    com_nm = models.CharField(db_column='COM_NM', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    com_e_nm = models.CharField(db_column='COM_E_NM', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    comp_tel = models.CharField(db_column='COMP_TEL', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    comp_fax = models.CharField(db_column='COMP_FAX', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    comp_post = models.CharField(db_column='COMP_POST', max_length=10, blank=True, null=True)  # Field name made lowercase.
+    comp_address = models.CharField(db_column='COMP_ADDRESS', max_length=200, blank=True, null=True)  # Field name made lowercase.
+    comp_e_address = models.CharField(db_column='COMP_E_ADDRESS', max_length=200, blank=True, null=True)  # Field name made lowercase.
+    ent_date = models.DateTimeField(db_column='ENT_DATE', blank=True, null=True)  # Field name made lowercase.
+    prm_date = models.DateTimeField(db_column='PRM_DATE', blank=True, null=True)  # Field name made lowercase.
+    ret_date = models.DateTimeField(db_column='RET_DATE', blank=True, null=True)  # Field name made lowercase.
+    yr_continue = models.CharField(db_column='YR_CONTINUE', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    tel = models.CharField(db_column='TEL', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    mobile = models.CharField(db_column='MOBILE', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    mobile_addition = models.CharField(db_column='MOBILE_ADDITION', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    user_mask = models.CharField(db_column='USER_MASK', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    ad_fg = models.CharField(db_column='AD_FG', max_length=1, blank=True, null=True)  # Field name made lowercase.
+    use_fg = models.CharField(db_column='USE_FG', max_length=1, blank=True, null=True)  # Field name made lowercase.
+    hr_fg = models.CharField(db_column='HR_FG', max_length=1, blank=True, null=True)  # Field name made lowercase.
+    it_fg = models.CharField(db_column='IT_FG', max_length=1, blank=True, null=True)  # Field name made lowercase.
+    ins_date = models.DateTimeField(db_column='INS_DATE', blank=True, null=True)  # Field name made lowercase.
+    upd_date = models.DateTimeField(db_column='UPD_DATE', blank=True, null=True)  # Field name made lowercase.
+    pass_upd_date = models.DateTimeField(db_column='PASS_UPD_DATE', blank=True, null=True)  # Field name made lowercase.
+    ad_upd_date = models.DateTimeField(db_column='AD_UPD_DATE', blank=True, null=True)  # Field name made lowercase.
+    contents_fg = models.CharField(db_column='CONTENTS_FG', max_length=1, blank=True, null=True)  # Field name made lowercase.
+    job_content = models.CharField(db_column='JOB_CONTENT', max_length=1000, blank=True, null=True)  # Field name made lowercase.
+    skill_content = models.CharField(db_column='SKILL_CONTENT', max_length=1000, blank=True, null=True)  # Field name made lowercase.
+    introduction = models.CharField(db_column='INTRODUCTION', max_length=1000, blank=True, null=True)  # Field name made lowercase.
+    weather_region_cd = models.CharField(db_column='WEATHER_REGION_CD', max_length=30, blank=True, null=True)  # Field name made lowercase.
+    site_cd = models.CharField(db_column='SITE_CD', max_length=3, blank=True, null=True)  # Field name made lowercase.
+    manager_id = models.CharField(db_column='MANAGER_ID', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    display_yn = models.CharField(db_column='DISPLAY_YN', max_length=1, blank=True, null=True)  # Field name made lowercase.
+    msg_yn = models.CharField(db_column='MSG_YN', max_length=1, blank=True, null=True)  # Field name made lowercase.
+    post = models.CharField(db_column='POST', max_length=10, blank=True, null=True)  # Field name made lowercase.
+    address = models.CharField(db_column='ADDRESS', max_length=200, blank=True, null=True)  # Field name made lowercase.
+    address_addition = models.CharField(db_column='ADDRESS_ADDITION', max_length=200, blank=True, null=True)  # Field name made lowercase.
+    blog_address = models.CharField(db_column='BLOG_ADDRESS', max_length=200, blank=True, null=True)  # Field name made lowercase.
+    fax = models.CharField(db_column='FAX', max_length=30, blank=True, null=True)  # Field name made lowercase.
+    atd_target_yn = models.CharField(db_column='ATD_TARGET_YN', max_length=1, blank=True, null=True)  # Field name made lowercase.
+    lync_sip = models.CharField(db_column='LYNC_SIP', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    cd_b_level = models.CharField(db_column='CD_B_LEVEL', max_length=30, blank=True, null=True)  # Field name made lowercase.
+    ds_b_level = models.CharField(db_column='DS_B_LEVEL', max_length=60, blank=True, null=True)  # Field name made lowercase.
+    cd_m_level = models.CharField(db_column='CD_M_LEVEL', max_length=30, blank=True, null=True)  # Field name made lowercase.
+    ds_m_level = models.CharField(db_column='DS_M_LEVEL', max_length=60, blank=True, null=True)  # Field name made lowercase.
+    level_detail = models.CharField(db_column='LEVEL_DETAIL', max_length=500, blank=True, null=True)  # Field name made lowercase.
+    o365_yn = models.CharField(db_column='O365_YN', max_length=1, blank=True, null=True)  # Field name made lowercase.
+    prohibit_quota = models.IntegerField(db_column='PROHIBIT_QUOTA', blank=True, null=True)  # Field name made lowercase.
+    autodesk_id = models.CharField(db_column='AUTODESK_ID', max_length=32, blank=True, null=True)  # Field name made lowercase.
+    uuid = models.CharField(db_column='UUID', max_length=32, blank=True, null=True)  # Field name made lowercase.
+    wfh_yn = models.CharField(db_column='WFH_YN', max_length=1, blank=True, null=True)  # Field name made lowercase.
+    seat_txt = models.CharField(db_column='SEAT_TXT', max_length=200, blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False  # Created from a view. Don't remove.
+        db_table = 'V_BASE_USER'
+
+
+class VFilteredUserCertification(models.Model):
+    user_id = models.CharField(db_column='USER_ID', max_length=20)  # Field name made lowercase.
+    emp_no = models.CharField(db_column='EMP_NO', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    user_nm = models.CharField(db_column='USER_NM', max_length=50)  # Field name made lowercase.
+    user_e_nm = models.CharField(db_column='USER_E_NM', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    mail = models.CharField(db_column='MAIL', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    dept_cd = models.CharField(db_column='DEPT_CD', max_length=20)  # Field name made lowercase.
+    dept_nm = models.CharField(db_column='DEPT_NM', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    title_cd = models.CharField(db_column='TITLE_CD', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    title_nm = models.CharField(db_column='TITLE_NM', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    degree_cd = models.CharField(db_column='DEGREE_CD', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    com_cd = models.CharField(db_column='COM_CD', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    com_nm = models.CharField(db_column='COM_NM', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    comp_tel = models.CharField(db_column='COMP_TEL', max_length=50, blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False  # Created from a view. Don't remove.
+        db_table = 'V_FILTERED_USER_CERTIFICATION'
+
+
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150, db_collation='Korean_Wansung_CI_AS')
 

@@ -4,6 +4,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework import status
 from pymongo import MongoClient
 from bson.json_util import dumps, loads
+from assessment.models import TbBimCertificationTest, TbBimCertificationManager, VBaseUser
 
 # Create your views here.
 @api_view(['GET'])
@@ -93,3 +94,15 @@ def djongo_view(request):
     except Exception as e:
         print(e)
         return Response("Error", status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET'])
+def mssql_view(request):
+    param = request.query_params
+    print("====request====")
+    manager_list = TbBimCertificationManager.objects.all().values()
+    user_list = VBaseUser.objects.all().values()
+    print("====manager_list====")
+    print(manager_list)
+    
+    return Response(user_list, status=status.HTTP_200_OK)
+    
