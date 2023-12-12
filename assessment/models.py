@@ -203,7 +203,7 @@ class TbBimCertificationTest(models.Model):
 
 
 class TbBimCertificationTestUser(models.Model):
-    test_id = models.IntegerField(primary_key=True)
+    test_id = models.IntegerField(primary_key=True)  # The composite primary key (test_id, user_id) found, that is not supported. The first column is selected.
     user_id = models.CharField(max_length=8, db_collation='Korean_Wansung_CI_AS')
     registration_datetime = models.DateTimeField()
     start_datetime = models.DateTimeField(blank=True, null=True)
@@ -227,7 +227,7 @@ class TbBimCertificationTestUser(models.Model):
 
 
 class TbBimCertificationTestUserChoose(models.Model):
-    user_id = models.CharField(primary_key=True, max_length=8, db_collation='Korean_Wansung_CI_AS')
+    user_id = models.CharField(primary_key=True, max_length=8, db_collation='Korean_Wansung_CI_AS')  # The composite primary key (user_id, test_id, question_id, choice_id) found, that is not supported. The first column is selected.
     test_id = models.IntegerField()
     question_id = models.IntegerField()
     choice_id = models.IntegerField()
@@ -241,7 +241,7 @@ class TbBimCertificationTestUserChoose(models.Model):
 
 
 class TbBimCertificationTestUserQuestion(models.Model):
-    test_id = models.IntegerField(primary_key=True)
+    test_id = models.IntegerField(primary_key=True)  # The composite primary key (test_id, user_id, question_id) found, that is not supported. The first column is selected.
     user_id = models.CharField(max_length=8, db_collation='Korean_Wansung_CI_AS')
     question_id = models.IntegerField()
     category = models.CharField(max_length=100, db_collation='Korean_Wansung_CI_AS', blank=True, null=True)
@@ -258,7 +258,7 @@ class TbBimCertificationTestUserQuestion(models.Model):
 
 
 class TbBimCertificationTestUserSummary(models.Model):
-    user_id = models.CharField(primary_key=True, max_length=10, db_collation='Korean_Wansung_CI_AS')
+    user_id = models.CharField(primary_key=True, max_length=10, db_collation='Korean_Wansung_CI_AS')  # The composite primary key (user_id, test_id, subject_id) found, that is not supported. The first column is selected.
     test_id = models.IntegerField()
     subject_id = models.IntegerField()
     period_sec = models.IntegerField()
@@ -340,7 +340,7 @@ class VBaseDept(models.Model):
 
 
 class VBaseUser(models.Model):
-    user_id = models.CharField(db_column='USER_ID', max_length=20, primary_key=True)  # Field name made lowercase.
+    user_id = models.CharField(db_column='USER_ID', max_length=20)  # Field name made lowercase.
     emp_no = models.CharField(db_column='EMP_NO', max_length=20, blank=True, null=True)  # Field name made lowercase.
     user_nm = models.CharField(db_column='USER_NM', max_length=50)  # Field name made lowercase.
     user_e_nm = models.CharField(db_column='USER_E_NM', max_length=100, blank=True, null=True)  # Field name made lowercase.

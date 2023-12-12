@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'djongo',
     'assessment',
 ]
 
@@ -84,24 +83,33 @@ DATABASES = {
     # }
 
     # mssql
-    'default': {
+    # 'default': {
+    #     'ENGINE': 'sql_server.pyodbc',
+    #     'HOST': '192.168.40.72',
+    #     'PORT': '1433',
+    #     'NAME': 'CRT_DEV',
+    #     'USER': 'BimUser',
+    #     'PASSWORD': 'Bim202212B!m',
+    #     'driver': 'SQL Server',
+    #     'OPTIONS': {
+    #         'driver': "ODBC Driver 17 for SQL Server",
+    #         'host_is_server': True,
+    #         'unicoed_results': True
+    #     }
+    # }
+        'default': {
         'ENGINE': 'mssql',
         'HOST': '192.168.40.72',
         'PORT': '1433',
         'NAME': 'CRT_DEV',
         'USER': 'BimUser',
-        'PASSWORD': 'Bim202212B!m'
+        'PASSWORD': 'Bim202212B!m',
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',
+            'host_is_server': True,
+            'unicoed_results': True
+        }
     }
-
-    # mongo
-    # 'default': {
-    #     'ENGINE': 'djongo',
-    #     'HOST': '192.168.40.76',
-    #     'PORT': '27017',
-    #     'USER': 'root',
-    #     'PASSWORD': 'Bim202309B!m',
-    #     'NAME': 'test'
-    # }
 }
 
 

@@ -103,6 +103,8 @@ def mssql_view(request):
     user_list = VBaseUser.objects.all().values()
     print("====manager_list====")
     print(manager_list)
+    test_list = TbBimCertificationTest.objects.all().values()
     
-    return Response(user_list, status=status.HTTP_200_OK)
+    # return Response("Success")
+    return Response(test_list, status=status.HTTP_200_OK)
     
