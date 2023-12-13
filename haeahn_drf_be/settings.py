@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -84,20 +85,6 @@ DATABASES = {
     # }
 
     # mssql
-    # 'default': {
-    #     'ENGINE': 'sql_server.pyodbc',
-    #     'HOST': '192.168.40.72',
-    #     'PORT': '1433',
-    #     'NAME': 'CRT_DEV',
-    #     'USER': 'BimUser',
-    #     'PASSWORD': 'Bim202212B!m',
-    #     'driver': 'SQL Server',
-    #     'OPTIONS': {
-    #         'driver': "ODBC Driver 17 for SQL Server",
-    #         'host_is_server': True,
-    #         'unicoed_results': True
-    #     }
-    # }
         'default': {
         'ENGINE': 'mssql',
         'HOST': '192.168.40.72',
@@ -108,7 +95,7 @@ DATABASES = {
         'OPTIONS': {
             'driver': 'ODBC Driver 17 for SQL Server',
             'host_is_server': True,
-            'unicoed_results': True
+            'unicode_results': True
         }
     }
 }
@@ -154,3 +141,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
