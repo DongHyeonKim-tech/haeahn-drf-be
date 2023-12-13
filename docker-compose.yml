@@ -4,6 +4,8 @@ services:
   web:
     build: .
     command: gunicorn --config gunicorn.conf.py haeahn_drf_be.wsgi:application
+    volumes:
+      - /var/www/haeahn-dfr-be/static/:/haeahn-drf-be/static/
     ports:
       - "8000:8000"
   nginx:
