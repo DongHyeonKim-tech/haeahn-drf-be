@@ -21,5 +21,6 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('assessment/', include('assessment.urls'))
+    path('assessment/', include('assessment.urls')),
+    path('level-measurement/', include('level_measurement.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
