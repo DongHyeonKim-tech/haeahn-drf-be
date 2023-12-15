@@ -138,6 +138,14 @@ def find_min_view(request):
 
 @api_view(['POST'])
 def insert_one_view(request):
+    param = request.query_params
+    print("====param====")
+    print(param)
+    
+    form_data = request.data.copy()
+    print("====form_data====")
+    print(form_data)
+    
     try:
         client = MongoClient('mongodb://root:Bim202309B!m@192.168.40.76:27017')
         # db 연결
@@ -145,13 +153,17 @@ def insert_one_view(request):
         # collection 연결
         collection = db['test']
         
-        # 최대값 조회
-        max_value = loads(dumps(collection.find({}).sort("key",-1).limit(1)))
-        max_key = max_value[0]['key']
-        # 단일 insert
-        collection.insert_one({"key": max_key+1, "label": "Number {}".format(max_key+1)})
-        # insert 이후 최대값
-        max_value_aft = loads(dumps(collection.find({}).sort("key",-1).limit(1)))
+        if "key" in param:
+            collection.insert_one({"key": param["key"], "label":"Number {}".format(param["key"])})
+            max_value_aft = collection.find_one({"key": param["key"]})
+        else:
+            # 최대값 조회
+            max_value = loads(dumps(collection.find({}).sort("key",-1).limit(1)))
+            max_key = max_value[0]['key']
+            # 단일 insert
+            collection.insert_one({"key": max_key+1, "label": "Number {}".format(max_key+1)})
+            # insert 이후 최대값
+            max_value_aft = loads(dumps(collection.find({}).sort("key",-1).limit(1)))
         return Response("insert value: {}".format(max_value_aft), status=status.HTTP_200_OK)
     except Exception as e:
         print("====error====")
