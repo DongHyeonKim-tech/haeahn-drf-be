@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'assessment',
     'level_measurement',
     'corsheaders',
+    'graphene_django'
 ]
 
 MIDDLEWARE = [
@@ -152,3 +153,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CORS 관련 추가
 CORS_ORIGIN_WHITELIST = ['http://localhost:3003', 'http://192.168.40.76:3003']
 CORS_ALLOW_CREDENTIALS = True
+
+
+# graphene
+GRAPHENE = {
+    'SCHEMA': 'assessment.schema.schema'
+}
