@@ -18,6 +18,18 @@ def test_list_view(request):
     print(manager_list)
     test_list = TbBimCertificationTest.objects.all().values()
     
-    # return Response("Success")
     return Response(test_list, status=status.HTTP_200_OK)
     
+    
+@api_view(['POST'])
+def upload_file_view(request):
+    files = request.data
+    print("====files====")
+    print(files)
+    file = files.values()
+    print("====file====")
+    print(file)
+    print("====request====")
+    print(request)
+    
+    return Response("Success", status=status.HTTP_200_OK)
