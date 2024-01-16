@@ -576,3 +576,9 @@ class DjangoSession(models.Model):
     class Meta:
         managed = False
         db_table = 'django_session'
+
+class UploadFileModel(models.Model):
+    # description = models.CharField(max_length=255)
+    files = models.FileField(upload_to="", null=True)
+    # upload_at = models.DateTimeField(auto_now_add=True)
+    

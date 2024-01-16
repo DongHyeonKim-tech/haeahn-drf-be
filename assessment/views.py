@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework import status
-from assessment.models import TbBimCertificationTest, TbBimCertificationManager, VBaseUser
+from assessment.models import TbBimCertificationTest, TbBimCertificationManager, VBaseUser, UploadFileModel
 
 # Create your views here.
 
@@ -23,13 +23,17 @@ def test_list_view(request):
     
 @api_view(['POST'])
 def upload_file_view(request):
-    files = request.data
-    print("====files====")
-    print(files)
-    file = files.values()
+    data = request.data
+    print("====data====")
+    print(data)
+    file = data.values()
     print("====file====")
     print(file)
-    print("====request====")
-    print(request)
+    files = request.FILES['files']
+    print("====files====")
+    print(files)
+    if (files):
+        upload_file = UploadFileModel(files=files)
+        upload_file.save()
     
     return Response("Success", status=status.HTTP_200_OK)
