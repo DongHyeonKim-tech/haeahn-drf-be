@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'assessment',
     'level_measurement',
+    'bim_mng',
     'corsheaders',
     'graphene_django'
 ]
@@ -88,7 +89,7 @@ DATABASES = {
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
 
-    # mssql
+    # 평가 DB
     'default': {
     'ENGINE': 'mssql',
     'HOST': '192.168.40.72',
@@ -102,8 +103,23 @@ DATABASES = {
         'unicode_results': True
         }
     },
+    # 평가 DB
+    'mng_dev': {
+    'ENGINE': 'mssql',
+    'HOST': '192.168.40.72',
+    'PORT': '1433',
+    'NAME': 'MNG_DEV',
+    'USER': 'BimUser',
+    'PASSWORD': 'Bim202212B!m',
+    'OPTIONS': {
+        'driver': 'ODBC Driver 17 for SQL Server',
+        'host_is_server': True,
+        'unicode_results': True
+        }
+    },
 }
 
+DATABASES_ROUTERS = ['haeahn_drf_be.db_routers.py.MngDBRouter']
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
