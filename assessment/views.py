@@ -25,7 +25,7 @@ def subject_list_view(request):
     subject_list = TbBimCertificationSubject.objects.filter(is_used=True).values()
     return Response(subject_list, status=status.HTTP_200_OK)
     
-    
+
 @api_view(['POST'])
 def upload_file_view(request):
     data = request.data
@@ -44,4 +44,11 @@ def upload_file_view(request):
             return Response("Success", status=status.HTTP_200_OK)
         except:
             return Response("Falied", status=status.HTTP_400_BAD_REQUEST)
+            
+         
+@api_view(['GET'])
+def analyze(request):
+    data = request.data
+    print("====data====")
+    return Response("Success", status=status.HTTP_200_OK)
             
